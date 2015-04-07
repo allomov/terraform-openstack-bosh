@@ -1,0 +1,6 @@
+openstack_access_key = "XXXXXXXXXXXXXX"
+openstack_secret_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+openstack_key_path = "~/.ssh/bosh.pem"
+openstack_key_name = "bosh"
+openstack_region = "RegionOne"
+network = "10.10"

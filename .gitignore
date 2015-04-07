@@ -1,0 +1,9 @@
+*.tfvars
+*.tfplan
+*.tfstate
+*.tfstate.backup
+crash.log
+.terraform/
+.envrc
+go
+tmp

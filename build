@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+# brew install mercurial
+# brew install go # golang v1.4
+
+TERRAFORM_DIR=$GOPATH/src/github.com/hashicorp/terraform
+mkdir -p $TERRAFORM_DIR
+git clone https://github.com/hashicorp/terraform.git $TERRAFORM_DIR
+
+cd $TERRAFORM_DIR
+
+make updatedeps
+make dev
