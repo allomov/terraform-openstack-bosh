@@ -16,12 +16,12 @@ resource "openstack_compute_secgroup_v2" "bosh" {
   description = "BOSH Security group."
   region = "${var.openstack_region}"
 
-  rule {
-    from_port = 1
-    to_port = 65535
-    ip_protocol = "tcp"
-    from_group_id = "${openstack_compute_secgroup_v2.bosh.id}"
-  }
+  # rule {
+  #   from_port = 1
+  #   to_port = 65535
+  #   ip_protocol = "tcp"
+  #   from_group_id = "${openstack_compute_secgroup_v2.bosh.id}"
+  # }
   rule {
     from_port = 25777
     to_port = 25777

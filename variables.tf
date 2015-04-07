@@ -4,6 +4,7 @@ variable "openstack_password" {}
 variable "openstack_tenant_name" {}
 variable "openstack_key_path" {}
 variable "openstack_key_name" {}
+variable "openstack_public_network_id" {}
 
 variable "openstack_region" {
   default = "regionOne"
