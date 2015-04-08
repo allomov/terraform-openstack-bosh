@@ -32,9 +32,13 @@ resource "openstack_networking_router_interface_v2" "int_1" {
 
 }
 
+resource "openstack_compute_instance_v2" "jumpbox" {
+  name = "jumpbox"
 
-
-
+  provisioner "remote-exec" {
+    script = "jumpbox.sh"
+  }
+}
 
 
 # Possible resources:

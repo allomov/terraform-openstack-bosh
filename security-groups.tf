@@ -11,6 +11,7 @@ resource "openstack_compute_secgroup_v2" "ssh" {
 }
 
 # TODO: move from ::/0 to subnets into security groups
+# TODO: add BOSH from_group_id
 resource "openstack_compute_secgroup_v2" "bosh" {
   name = "bosh"
   description = "BOSH Security group."
