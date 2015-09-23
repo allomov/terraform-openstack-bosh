@@ -1,8 +1,8 @@
 provider "openstack" {
-  auth_url = "${var.openstack_identity_endpoint}"
-  tenant_name = "${var.openstack_tenant_name}"
-  user_name = "${var.openstack_username}"
-  password = "${var.openstack_password}"
+    auth_url = "${var.openstack_identity_endpoint}"
+    tenant_name = "${var.openstack_tenant_name}"
+    user_name = "${var.openstack_username}"
+    password = "${var.openstack_password}"
 }
 
 resource "openstack_networking_network_v2" "network_1" {
@@ -33,36 +33,11 @@ resource "openstack_networking_router_interface_v2" "int_1" {
 }
 
 resource "openstack_compute_instance_v2" "jumpbox" {
-  name = "jumpbox"
+    name = "jumpbox"
+    image_name = "Ubuntu 14.04"
+    flavor_name = "m1.medium"
 
-  provisioner "remote-exec" {
-    script = "jumpbox.sh"
-  }
+    provisioner "remote-exec" {
+      script = "scripts/jumpbox.sh"
+    }
 }
-
-
-# Possible resources:
-#   openstack_blockstorage_volume_v1
-#   openstack_compute_instance_v2
-#   openstack_compute_keypair_v2
-#   openstack_compute_secgroup_v2
-#   openstack_compute_floatingip_v2
-#   openstack_fw_firewall_v1
-#   openstack_fw_policy_v1
-#   openstack_fw_rule_v1
-#   openstack_lb_monitor_v1
-#   openstack_lb_pool_v1
-#   openstack_lb_vip_v1
-#   openstack_networking_network_v2
-#   openstack_networking_subnet_v2
-#   openstack_networking_floatingip_v2
-#   openstack_networking_router_v2
-#   openstack_networking_router_interface_v2
-#   openstack_objectstorage_container_v1
-
-
-# What do I need:
-#   openstack_networking_network_v2
-#   openstack_networking_subnet_v2
-#   openstack_compute_secgroup_v2
-#   openstack_networking_router_v2

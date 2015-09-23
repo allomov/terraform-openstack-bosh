@@ -1,8 +1,10 @@
 openstack_identity_endpoint = "some-url"
-openstack_access_key = "XXXXXXXXXXXXXX"
-openstack_secret_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+openstack_username = ""
+openstack_password = ""
 openstack_key_path = "~/.ssh/bosh.pem"
 openstack_key_name = "bosh"
 openstack_tenant_name = "XXX"
 openstack_region = "RegionOne"
 network = "10.10"
+# use `nova network-list` command to find out this value
+openstack_public_network_id = "xxxxxxxxx"
