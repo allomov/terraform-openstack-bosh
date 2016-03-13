@@ -1,10 +1,10 @@
-GO_VERSON=1.4.2
-RUBY_VERSION=2.1.5
+# Install ansible
+sudo apt-get update
+sudo apt-get install python-pip python-dev -y
+sudo pip install ansible
 
-sudo apt-get install -y wget tmux git mercurial
+sudo ansible-galaxy install allomov.bosh-jumpbox
 
-wget https://storage.googleapis.com/golang/go$GO_VERSON.src.tar.gz
-tar -xvf go$GO_VERSON.src.tar.gz
+echo "127.0.0.1" > $HOME/ansible_hosts
 
-# source ~/.bashrc
-# gem install bosh_cli
+ansible-playbook -i $HOME/ansible_hosts jumpbox.yml

@@ -29,7 +29,6 @@ resource "openstack_networking_router_interface_v2" "int_1" {
     subnet_id = "${openstack_networking_subnet_v2.subnet_1.id}"
     router_id = "${openstack_networking_router_v2.router_1.id}"
     region = "${var.openstack_region}"
-
 }
 
 resource "openstack_compute_instance_v2" "jumpbox" {
