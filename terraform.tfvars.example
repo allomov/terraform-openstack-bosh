@@ -8,3 +8,5 @@ openstack_region = "RegionOne"
 network = "10.10"
 # use `nova network-list` command to find out this value
 openstack_public_network_id = "xxxxxxxxx"
+jumpbox_image_id = "xxxxxxx"
+jumpbox_key_pair = "bosh"

@@ -16,6 +16,7 @@ Enjoy!
 
 You can use `python-novaclient` to find out external network ID (`openstack_public_network_id` attribute). In order to do it run following commands:
 ```
-pip install python-novaclient  # possibly you'll need to run it under sudo
-nova --os-username=xxx --os-password=xxx --os-tenant-name=xxx --os-auth-url="xxx" --os-compute-api-version=2 network-list
+pip install python-openstackclient  # possibly you'll need to run it under sudo
+openstack image list -f json | jq -c '.[] | select(.Name | contains("Ubuntu")) | .ID' | head -1 | sed 's/"//g'
+openstack network list -f value -c ID
 ```

@@ -1,10 +1,6 @@
-# for building terraform from sources
-# export GOPATH=$PWD/go
-# export PATH=$GOPATH/src/github.com/hashicorp/terraform/bin:$PATH
-
-# for using python-novaclient without additional parameters
-# export OS_USERNAME=XXXX
-# export OS_PASSWORD=XXXX
-# export OS_TENANT_NAME=xxx 
-# export OS_AUTH_URL="xxx" 
-# export OS_COMPUTE_API_VERSION=2
+# for using python-openstackclient without additional parameters
+export OS_USERNAME=XXXX
+export OS_PASSWORD=XXXX
+export OS_TENANT_NAME=xxx 
+export OS_AUTH_URL="xxx" 
+export OS_COMPUTE_API_VERSION=2

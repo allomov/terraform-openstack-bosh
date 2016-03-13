@@ -33,8 +33,9 @@ resource "openstack_networking_router_interface_v2" "int_1" {
 
 resource "openstack_compute_instance_v2" "jumpbox" {
     name = "jumpbox"
-    image_name = "Ubuntu 14.04"
-    flavor_name = "m1.medium"
+    image_id = "${jumpbox_image_id}"
+    key_pair = "${jumpbox_key_pair}"
+    flavor_name = "m1.small"
 
     provisioner "remote-exec" {
       script = "scripts/jumpbox.sh"

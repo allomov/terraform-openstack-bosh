@@ -5,6 +5,8 @@ variable "openstack_tenant_name" {}
 variable "openstack_key_path" {}
 variable "openstack_key_name" {}
 variable "openstack_public_network_id" {}
+variable "jumpbox_key_pair" {}
+variable "jumpbox_image_id" {}
 
 variable "openstack_region"    { default = "regionOne" }
 variable "network"             { default = "10.10" }
