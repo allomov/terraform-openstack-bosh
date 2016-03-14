@@ -33,11 +33,55 @@ resource "openstack_networking_router_interface_v2" "int_1" {
 
 resource "openstack_compute_instance_v2" "jumpbox" {
     name = "jumpbox"
-    image_id = "${jumpbox_image_id}"
-    key_pair = "${jumpbox_key_pair}"
+    image_id = "${var.jumpbox_image_id}"
+    key_pair = "${var.jumpbox_key_pair}"
     flavor_name = "m1.small"
 
     provisioner "remote-exec" {
       script = "scripts/jumpbox.sh"
     }
+}
+
+resource "openstack_compute_instance_v2" "jumpbox" {
+
+  name = "jumpbox"
+
+  flavor_name = "m1.small"
+
+  user_data = "${template_file.bosh.rendered}"
+
+  network = {
+    uuid = "${openstack_networking_network_v2.network_1.id}"
+  }
+
+  availability_zone = "${var.openstack_availability_zone}"
+
+  floating_ip = "${openstack_compute_floatingip_v2.jumpbox.address}"
+
+  security_groups = [
+      "${openstack_compute_secgroup_v2.ssh.name}",
+      "${openstack_compute_secgroup_v2.ping.name}",
+      "${openstack_compute_secgroup_v2.bosh.name}"
+    ]
+
+  key_pair = "${var.jumpbox_key_pair}"
+
+  block_device {
+    uuid = "${var.jumpbox_image_id}"
+    source_type = "image"
+    volume_size = 100
+    boot_index = 0
+    destination_type = "volume"
+  }
+
+  provisioner "remote-exec" {
+    connection {
+      user = "ubuntu"
+      type = "ssh"
+      key_file = "${file("${var.jumpbox_private_key}")}"
+      timeout = "2m"
+    }
+    script = "scripts/jumpbox.sh"
+  }
+
 }

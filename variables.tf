@@ -7,6 +7,8 @@ variable "openstack_key_name" {}
 variable "openstack_public_network_id" {}
 variable "jumpbox_key_pair" {}
 variable "jumpbox_image_id" {}
+variable "jumpbox_public_key" {}
+variable "jumpbox_private_key" {}
 
 variable "openstack_region"    { default = "regionOne" }
 variable "network"             { default = "10.10" }
