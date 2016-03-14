@@ -31,6 +31,10 @@ resource "openstack_networking_router_interface_v2" "int_1" {
     region = "${var.openstack_region}"
 }
 
+resource "openstack_compute_floatingip_v2" "jumpbox" {
+  pool = "net04_ext"
+}
+
 resource "openstack_compute_instance_v2" "jumpbox" {
     name = "jumpbox"
     image_id = "${var.jumpbox_image_id}"
@@ -48,8 +52,6 @@ resource "openstack_compute_instance_v2" "jumpbox" {
 
   flavor_name = "m1.small"
 
-  user_data = "${template_file.bosh.rendered}"
-
   network = {
     uuid = "${openstack_networking_network_v2.network_1.id}"
   }
@@ -60,7 +62,6 @@ resource "openstack_compute_instance_v2" "jumpbox" {
 
   security_groups = [
       "${openstack_compute_secgroup_v2.ssh.name}",
-      "${openstack_compute_secgroup_v2.ping.name}",
       "${openstack_compute_secgroup_v2.bosh.name}"
     ]
 

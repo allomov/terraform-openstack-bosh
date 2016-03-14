@@ -5,6 +5,7 @@ variable "openstack_tenant_name" {}
 variable "openstack_key_path" {}
 variable "openstack_key_name" {}
 variable "openstack_public_network_id" {}
+variable "openstack_availability_zone" {}
 variable "jumpbox_key_pair" {}
 variable "jumpbox_image_id" {}
 variable "jumpbox_public_key" {}
