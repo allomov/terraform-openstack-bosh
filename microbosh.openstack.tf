@@ -36,17 +36,6 @@ resource "openstack_compute_floatingip_v2" "jumpbox" {
 }
 
 resource "openstack_compute_instance_v2" "jumpbox" {
-    name = "jumpbox"
-    image_id = "${var.jumpbox_image_id}"
-    key_pair = "${var.jumpbox_key_pair}"
-    flavor_name = "m1.small"
-
-    provisioner "remote-exec" {
-      script = "scripts/jumpbox.sh"
-    }
-}
-
-resource "openstack_compute_instance_v2" "jumpbox" {
 
   name = "jumpbox"
 
