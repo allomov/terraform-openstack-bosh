@@ -32,7 +32,7 @@ resource "openstack_networking_router_interface_v2" "int_1" {
 }
 
 resource "openstack_compute_floatingip_v2" "jumpbox" {
-  pool = "net04_ext"
+  pool = "admin_floating_net"
 }
 
 resource "openstack_compute_instance_v2" "jumpbox" {

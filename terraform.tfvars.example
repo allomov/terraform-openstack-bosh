@@ -1,7 +1,6 @@
 openstack_identity_endpoint = "some-url"
 openstack_username = ""
 openstack_password = ""
-openstack_key_name = "bosh"
 openstack_tenant_name = "XXX"
 openstack_region = "RegionOne"
 network = "10.10"

@@ -2,8 +2,6 @@ variable "openstack_identity_endpoint" {}
 variable "openstack_username" {}
 variable "openstack_password" {}
 variable "openstack_tenant_name" {}
-variable "openstack_key_path" {}
-variable "openstack_key_name" {}
 variable "openstack_public_network_id" {}
 variable "openstack_availability_zone" {}
 variable "jumpbox_key_pair" {}
