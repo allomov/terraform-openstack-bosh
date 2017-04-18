@@ -5,6 +5,16 @@ sudo pip install ansible
 
 sudo ansible-galaxy install allomov.bosh-jumpbox
 
-echo "127.0.0.1" > $HOME/ansible_hosts
+cat <<EOF > playbook.yml
+---
+- hosts: jumpbox
+  roles:
+  - role: allomov.bosh-jumpbox
+EOF
 
-ansible-playbook -i $HOME/ansible_hosts jumpbox.yml
+cat <<EOF > ansible_hosts
+[jumpbox]
+localhost ansible_connection=local
+EOF
+
+ansible-playbook -i ansible_hosts playbook.yml
